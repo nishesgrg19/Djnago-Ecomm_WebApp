@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}FORGET PASSWORD{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3 border py-5">
+ 
+  <h4><strong>Enter your E-mail for Verification</strong></h4>
+  <hr>
+   <form method="POST">
+       {% csrf_token  %}
+        <h4>E-mail:</h4> <input type="email" name="email" placeholder="Enter your E-mail">
+        <button class="btn btn-primary" type="submit">SUBMIT</button>
+       
+    
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

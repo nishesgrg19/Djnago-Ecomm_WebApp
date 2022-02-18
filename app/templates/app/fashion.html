@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} FASHION {% endblock title %}
+{% block main-content %}
+    <div class="container my-5">
+        <div class="row">
+            {% for item in product %}
+                <span class="col-lg-4">
+                    <div>
+                        <img src="{{item.image.url}}" alt="" width="100px" height="100px"> 
+                        <h5>{{item.title}}</h5>
+                        <p>{{item.description}}</p>
+                        <p>{{item.discount}} <del>{{item.selling_price}}</del></p>
+                    </div>
+
+                </span>
+            {% endfor %}
+        </div>
+
+
+
+    </div>
+{% endblock main-content %}

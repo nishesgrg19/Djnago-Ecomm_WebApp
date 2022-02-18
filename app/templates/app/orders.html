@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+ <h3>Welcome Sonam</h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">Orders</a></li>
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+   <div class="row">
+       {% for item in order %}
+         <div class="col-sm-6">
+            <h6>{{item.product.title}}</h6> 
+            <img src="{{item.product.image.url}}" height="100px" width="100px">
+            <h6>Customer Name: {{item.customer.name}}</h6>
+            <p>zipcode:{{item.customer.zipcode}}</p>
+            <p>State:{{item.customer.state}}</p>
+            <p>Price: {{item.product.discount}}</p>
+         </div>
+         <div class="col-sm-6">
+           <h6>Status: {{item.status}}</h6>
+
+         </div>
+         <hr>
+            
+       {% endfor %}
+
+    
+   
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

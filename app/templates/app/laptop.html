@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content  %}
+<div class="container my-5">
+    <div class="row">
+     <div class="col-lg-2">
+      <ul>
+          <li class="border"><a href="{% url 'laptop' %}">ALL LAPTOP</a></li>
+          <li class="border"><a href="{% url 'laptop' 'dell' %}">dell</a></li>
+          <li class="border"><a href="{% url 'laptop' 'acer' %}">acer</a></li>
+      </ul>
+     </div>
+     <div class="col-lg-10">
+       <div class="row">
+       {% for item in laptop %}
+           
+               <span class="col-lg-2">
+   
+                   <img src="{{item.image.url}}" width="100px" height="100px">
+                   <span>Product Name :{{item.title}} </span>
+                   <span>Price: {{item.discount}} <del>{{item.selling_price}}</del></span>
+               </span>
+         
+      
+         
+       {% endfor %}
+       </div>
+   </div>
+     
+    </div>
+   </div>
+{% endblock %}
